@@ -1,0 +1,11 @@
+{
+  "name": "grunt-approvals-server",
+  "version": "0.1.0",
+  "description": "",
+  "main": "gruntfile.js",
+  "author": "Chris Stead",
+  "license": "MPL 2.0",
+  "dependencies": {
+    "approvals-server": "^0.1.2"
+  }
+}
