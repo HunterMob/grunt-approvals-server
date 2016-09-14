@@ -24,7 +24,7 @@ function stop() {
 }
 
 module.exports = function (grunt) {
-    grunt.registerMultiTask('grunt-approvals-server', 'Run approvals http server', function () {
+    grunt.registerMultiTask('approvals-server', 'Run approvals http server', function () {
         var done = this.async();
 
         start(this.data);
