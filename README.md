@@ -36,17 +36,15 @@ module.exports = function (grunt) {
                 configFile: '.config/karma.conf.js'
             }
         },
-        "approvals-server": {
-            start: {
-                path: '.config/approvals-server.conf.js'
-            }
+        "approvals-server-start": {
+            path: '.config/approvals-server.conf.js'
         }
     });
 
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-approvals-server');
 
-    grunt.registerTask('test', ['approvals-server:start', 'karma:test']);
+    grunt.registerTask('test', ['approvals-server-start', 'karma:test', 'approvals-server-stop']);
 };
 ~~~
 
