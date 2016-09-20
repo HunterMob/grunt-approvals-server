@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         start(this.data);
     });
 
-    grunt.registerMultiTask('approvals-server-stop', 'Start approvals http server', function () {
+    grunt.registerTask('approvals-server-stop', 'Start approvals http server', function () {
         stop();
     });
 };
