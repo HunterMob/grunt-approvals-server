@@ -6,7 +6,7 @@ var path = require('path');
 var server = null;
 var runnerPath = [__dirname, '..', 'server-runner', 'runner'].join(path.sep);
 
-function start(config, done) {
+function start(config) {
     var args = [config.path];
 
     stop();
@@ -27,9 +27,12 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('approvals-server', 'Run approvals http server', function () {
         var done = this.async();
 
-        start(this.data);
+        if(this.target === 'start') {
+            start(this.data);
+            setTimeout(done, 250);
+        } else {
+            stop();
+        }
 
-        // Give the server a head-start before trying to run tests
-        setTimeout(done, 250);
     });
 };
