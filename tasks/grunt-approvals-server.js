@@ -6,13 +6,15 @@ var path = require('path');
 var server = null;
 var runnerPath = [__dirname, '..', 'server-runner', 'runner'].join(path.sep);
 
-function start(config) {
-    var args = [config.path];
+function start(configPath, callback) {
+    var args = [configPath];
 
     stop();
 
     server = child.fork(runnerPath, args);
     server.disconnect();
+
+    setTimeout(callback, 250);
 }
 
 function stop() {
@@ -24,15 +26,15 @@ function stop() {
 }
 
 module.exports = function (grunt) {
-    grunt.registerMultiTask('approvals-server', 'Run approvals http server', function () {
-        var done = this.async();
+    grunt.registerMultiTask('approvals-server', 'Run approvals http server', function (done) {
+        start(this.data.path);
+    });
 
-        if(this.target === 'start') {
-            start(this.data);
-            setTimeout(done, 250);
-        } else {
-            stop();
-        }
+    grunt.registerMultiTask('approvals-server-start', 'Start approvals http server', function (done) {
+        start(this.data);
+    });
 
+    grunt.registerMultiTask('approvals-server-stop', 'Start approvals http server', function () {
+        stop();
     });
 };

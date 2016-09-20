@@ -1,6 +1,6 @@
 {
   "name": "grunt-approvals-server",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Grunt task to run approvals-server",
   "main": "gruntfile.js",
   "author": "Chris Stead",
