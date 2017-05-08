@@ -1,11 +1,12 @@
 {
   "name": "grunt-approvals-server",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Grunt task to run approvals-server",
   "main": "gruntfile.js",
   "author": "Chris Stead",
   "license": "MPL 2.0",
   "dependencies": {
-    "approvals-server": "https://github.com/cmstead/approvals-server.git"
+    "approvals-server": "https://github.com/cmstead/approvals-server.git",
+    "approvals-server-runner": "^0.1.1"
   }
 }
