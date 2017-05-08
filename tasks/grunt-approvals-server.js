@@ -1,6 +1,6 @@
 'use strict';
 
-var runner = require('approvals-server-runner');
+var runner = require('approvals-server-runner')();
 
 function always (value){
     return function (){
